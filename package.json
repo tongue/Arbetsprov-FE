@@ -1,0 +1,12 @@
+{
+  "name": "arbetsprov-fe",
+  "repository": "git@github.com:isotopsweden/Arbetsprov-FE.git",
+  "author": "Johan Bergström <johan.bergstrom@isotop.se>",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:next-redux": "yarn workspace next-redux-ssr dev"
+  }
+}
