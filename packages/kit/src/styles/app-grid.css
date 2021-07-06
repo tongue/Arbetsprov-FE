@@ -1,0 +1,19 @@
+.app-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap) 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 48em) {
+  .app-grid {
+    display: grid;
+    max-width: calc(24rem * 3 + var(--spacing-gap) * 2);
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: min-content min-content auto;
+    grid-template-areas:
+      ". header ."
+      ". autocomplete ."
+      "list list list";
+  }
+}

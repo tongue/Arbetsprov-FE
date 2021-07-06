@@ -1,0 +1,111 @@
+.autocomplete {
+  --height: 4rem;
+
+  position: relative;
+  display: grid;
+  grid-area: autocomplete;
+}
+
+.autocomplete__combo-box {
+  display: grid;
+  grid-template-columns: min-content minmax(0, auto) min-content;
+  align-content: center;
+
+  gap: var(--spacing-xs);
+  height: var(--height);
+  padding: 0 var(--spacing-gap);
+
+  border-radius: var(--border-radius-m);
+  background-color: var(--color-negative);
+  color: var(--color-foreground);
+}
+
+.autocomplete__label {
+  font-weight: 800;
+}
+
+.autocomplete__input,
+.autocomplete__label {
+  font-size: var(--size-l);
+}
+
+.autocomplete__input {
+  font-weight: 500;
+  min-width: 0;
+}
+
+.autocomplete__button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.autocomplete__button--status-loading,
+.autocomplete__button--status-loading::before {
+  position: relative;
+}
+
+.autocomplete__button--status-loading {
+  display: block;
+  font-size: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.autocomplete__button--status-loading::before {
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  display: inline-block;
+  float: none;
+  background: transparent;
+  border: 2px solid currentColor;
+  border-bottom-color: transparent;
+  border-radius: var(--border-radius-round);
+  animation: autocomplete-rotate 600ms linear infinite;
+}
+
+.autocomplete__button--status-loading > * {
+  display: none;
+}
+
+.autocomplete__menu {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-negative);
+  position: absolute;
+  top: var(--height);
+  left: 0;
+  right: 0;
+  border-radius: var(--border-radius-m);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
+}
+
+.autocomplete__menuItem {
+  padding: var(--spacing-xs) var(--spacing-gap);
+}
+
+.autocomplete__menuItem:first-child {
+  margin-top: var(--spacing-xs);
+}
+
+.autocomplete__menuItem:last-child {
+  margin-bottom: var(--spacing-m);
+}
+
+.autocomplete__menuItem--active {
+  background-color: var(--color-highlight);
+}
+
+@keyframes autocomplete-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

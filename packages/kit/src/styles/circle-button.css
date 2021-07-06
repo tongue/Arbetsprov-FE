@@ -1,0 +1,11 @@
+.circle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-negative);
+  color: var(--color-foreground);
+  border-radius: var(--border-radius-round);
+  width: 2rem;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}

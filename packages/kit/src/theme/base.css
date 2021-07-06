@@ -1,0 +1,41 @@
+figure,
+button,
+input,
+ul,
+ol,
+li,
+h1 {
+  all: unset;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: var(--size-body);
+  background-color: var(--color-background);
+  font-family: "Roboto", sans-serif;
+}
+
+/* Normalize and reset */
+
+h1 {
+  font-size: var(--size-heading);
+  font-weight: 800;
+  text-align: center;
+  grid-area: header;
+}
+
+figure {
+  line-height: 1;
+}

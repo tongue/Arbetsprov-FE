@@ -1,0 +1,40 @@
+.stack {
+  --offset: 0;
+
+  position: relative;
+  display: inline-flex;
+}
+
+.stack--offset-xs {
+  --offset: var(--spacing-xs);
+}
+.stack--offset-s {
+  --offset: var(--spacing-s);
+}
+.stack--offset-m {
+  --offset: var(--spacing-m);
+}
+.stack--offset-l {
+  --offset: var(--spacing-l);
+}
+.stack--offset-xl {
+  --offset: var(--spacing-xl);
+}
+
+.stack > * {
+  position: absolute;
+}
+
+.stack--top-right > * {
+  top: var(--offset);
+  right: var(--offset);
+}
+
+.stack--top-left > * {
+  top: var(--offset);
+  left: var(--offset);
+}
+
+.stack > *:first-child {
+  position: static;
+}

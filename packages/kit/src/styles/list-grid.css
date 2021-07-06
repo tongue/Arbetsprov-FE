@@ -1,0 +1,12 @@
+.list-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-gap);
+  grid-area: list;
+}
+
+@media screen and (min-width: 48em) {
+  .list-grid {
+    grid-template-columns: repeat(auto-fill, 24rem);
+  }
+}

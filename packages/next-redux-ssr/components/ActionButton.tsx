@@ -1,8 +1,9 @@
 import React, { MouseEventHandler } from "react";
+import { ButtonHTMLAttributes } from "react";
 import { notUndefined } from "../utils";
 import ActionForm from "./ActionForm";
 
-interface Props {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: string | JSX.Element;
   actionType: string;
   values?: { [key: string]: string };
@@ -16,6 +17,7 @@ const ActionButton = ({
   children,
   className,
   onClick,
+  ...props
 }: Props): JSX.Element => {
   const values = notUndefined(_values) ? Object.entries(_values) : _values;
 
@@ -37,6 +39,7 @@ const ActionButton = ({
         type="submit"
         className={className}
         onClick={onClick ? onClick : eventPreventDefault}
+        {...props}
       >
         {children}
       </button>

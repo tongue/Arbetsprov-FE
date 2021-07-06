@@ -1,0 +1,82 @@
+.weather-card {
+  --aspect-ratio: 21 / 8;
+  --icon-width: 4rem;
+  --temperature-height: 3rem;
+  --city-height: 1rem;
+
+  display: grid;
+  grid-template-columns: var(--icon-width) minmax(8rem, auto);
+  grid-template-rows: var(--temperature-height) var(--city-height);
+  grid-template-areas:
+    "icon temperature"
+    "icon city";
+  gap: 0 var(--spacing-gap);
+
+  align-content: center;
+  aspect-ratio: var(--aspect-ratio);
+  border-radius: var(--border-radius-s);
+  color: var(--color-negative);
+  padding: 0 var(--spacing-gap);
+}
+
+.weather-card--hot {
+  background-color: var(--color-hot);
+}
+.weather-card--lukewarm {
+  background-color: var(--color-lukewarm);
+}
+.weather-card--cold {
+  background-color: var(--color-cold);
+}
+
+.weather-card__icon {
+  grid-area: icon;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-card__temperature {
+  grid-area: temperature;
+
+  font-size: var(--size-display);
+  line-height: 80%;
+}
+
+.weather-card__temperature-unit {
+  text-decoration: none;
+  cursor: help;
+}
+
+.weather-card__city {
+  grid-area: city;
+
+  text-transform: uppercase;
+}
+
+.weather-card__country {
+  font-size: var(--size-s);
+  display: block;
+}
+
+.weather-card__heading {
+  font-size: var(--size-body);
+  margin: 0;
+}
+
+@media screen and (min-width: 48em) {
+  .weather-card {
+    --icon-width: 5.5rem;
+    --aspect-ratio: 2 / 1;
+    --temperature-height: 4rem;
+    --city-height: 1.5rem;
+
+    width: 24rem;
+  }
+
+  .weather-card__city,
+  .weather-card__temperature {
+    text-align: center;
+  }
+}

@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@isotop/kit": "0.1.0",
     "@reduxjs/toolkit": "^1.5.1",
     "@types/lodash": "^4.14.170",
     "@types/object-hash": "^2.1.0",

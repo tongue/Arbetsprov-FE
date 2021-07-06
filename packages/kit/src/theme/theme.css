@@ -1,0 +1,25 @@
+:root {
+  --color-foreground: var(--color-base-black);
+  --color-background: var(--color-base-pale);
+  --color-negative: var(--color-base-white);
+  --color-highlight: var(--color-brand-blue-sky);
+
+  --color-cold: var(--color-brand-blue);
+  --color-lukewarm: var(--color-brand-yellow);
+  --color-hot: var(--color-brand-red);
+
+  --size-heading: var(--size-xl);
+  --size-input: var(--size-l);
+  --size-body: var(--size-m);
+  --size-display: var(--size-2xl);
+
+  --spacing-gap: var(--spacing-m);
+}
+
+@media screen and (min-width: 48em) {
+  :root {
+    --size-body: var(--size-l);
+    --size-display: var(--size-3xl);
+    --spacing-gap: var(--spacing-l);
+  }
+}

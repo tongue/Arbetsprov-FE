@@ -1,15 +1,16 @@
 import React, { FormEventHandler, ReactNode } from "react";
+import { HTMLProps } from "react";
 
-export interface Props {
+export interface Props extends HTMLProps<HTMLFormElement> {
   actionType: string;
   children: ReactNode;
 }
 
-const ActionForm = ({ actionType, children }: Props): JSX.Element => {
+const ActionForm = ({ actionType, children, ...props }: Props): JSX.Element => {
   const onSubmit: FormEventHandler = (event) => event.preventDefault();
 
   return (
-    <form method="GET" action="/" onSubmit={onSubmit}>
+    <form {...props} method="GET" action="/" onSubmit={onSubmit}>
       <input type="hidden" name="actionType" value={actionType} />
       {children}
     </form>

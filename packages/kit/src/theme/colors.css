@@ -1,0 +1,11 @@
+:root {
+  --color-base-pale: #eeeeee;
+  --color-base-black: #000000;
+  --color-base-white: #ffffff;
+
+  --color-brand-yellow: #fac710;
+  --color-brand-red: #f24726;
+  --color-brand-blue: #2d9bf0;
+  --color-brand-blue-sky: #75d5ee;
+  --color-brand-green: #8fd14f;
+}

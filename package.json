@@ -7,6 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev:next-redux": "yarn workspace next-redux-ssr dev"
+    "dev:next-redux": "yarn workspace next-redux-ssr dev",
+    "dev:kit": "yarn workspace @isotop/kit storybook",
+    "build:kit": "yarn workspace @isotop/kit build"
   }
 }

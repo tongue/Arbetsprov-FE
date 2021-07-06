@@ -14,6 +14,7 @@ import { useServerSideAction } from "../../hooks/ssr";
 import { hasLength } from "../../utils";
 import { debounce } from "lodash";
 import { useCombobox } from "downshift";
+import { autocomplete as autocompleteStyles, AddIcon } from "@isotop/kit";
 
 const Autocomplete = (): JSX.Element => {
   const { items, status } = useSuggestions();
@@ -53,38 +54,44 @@ const Autocomplete = (): JSX.Element => {
   const isHighlighted = (index: number): boolean =>
     autocomplete.highlightedIndex === index;
 
+  const styles = autocompleteStyles({ status });
+
   return (
-    <div>
-      <ActionForm actionType={fetchSuggestionsActionType}>
-        <label {...autocomplete.getLabelProps()}>Find city:</label>
-        <div {...autocomplete.getComboboxProps()}>
-          <input
-            name="cityName"
-            type="text"
-            {...autocomplete.getInputProps()}
-          />
-          <button
-            type="submit"
-            name="suggestionsMenu"
-            value="open"
-            {...autocomplete.getToggleButtonProps()}
-          >
-            Find
-          </button>
-          {status === "loading" ? <span>loading...</span> : undefined}
-        </div>
+    <div className={styles.block}>
+      <ActionForm
+        className={styles.comboBox}
+        actionType={fetchSuggestionsActionType}
+        {...autocomplete.getComboboxProps()}
+      >
+        <label className={styles.label} {...autocomplete.getLabelProps()}>
+          Location:
+        </label>
+        <input
+          className={styles.input}
+          name="cityName"
+          type="text"
+          {...autocomplete.getInputProps()}
+        />
+        <button
+          className={styles.button}
+          type="submit"
+          name="suggestionsMenu"
+          value="open"
+          aria-label="Add"
+          {...autocomplete.getToggleButtonProps()}
+        >
+          <figure>
+            <AddIcon />
+          </figure>
+        </button>
       </ActionForm>
-      <ol {...autocomplete.getMenuProps()}>
+      <ol className={styles.menu} {...autocomplete.getMenuProps()}>
         {autocomplete.isOpen &&
           items.map((item, index) => (
             <li
+              className={styles.menuItem(isHighlighted(index))}
               key={item.id}
               {...autocomplete.getItemProps({ item, index })}
-              style={
-                isHighlighted(index)
-                  ? { backgroundColor: "hotpink" }
-                  : undefined
-              }
             >
               <ActionButton
                 actionType={fetchWeatherForCityActionType}
