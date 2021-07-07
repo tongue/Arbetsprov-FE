@@ -9,6 +9,7 @@
   "scripts": {
     "dev:next-redux": "yarn workspace next-redux-ssr dev",
     "dev:kit": "yarn workspace @isotop/kit storybook",
-    "build:kit": "yarn workspace @isotop/kit build"
+    "build:kit": "yarn workspace @isotop/kit build",
+    "test:kit": "yarn workspace @isotop/kit test"
   }
 }
