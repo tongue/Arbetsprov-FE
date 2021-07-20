@@ -1,52 +1,16 @@
 import { Meta } from "@storybook/react";
-import PageGrid from "./PageGrid";
-import AppGrid from "./AppGrid";
-import ListGrid from "./ListGrid";
-import WeatherCard, { WeatherCardProps } from "./WeatherCard";
-import Autocomplete from "./Autocomplete";
+import { Default as AppGrid } from "./AppGrid.stories";
+import pageGrid from "../modules/page-grid";
 
 export default {
-  component: PageGrid,
-  title: "Modules/PageGrid",
+  title: "Modules/pageGrid",
 } as Meta;
 
-const weatherItems: WeatherCardProps[] = [
-  {
-    temperature: 20,
-    city: "Stockholm",
-    country: "Sweden",
-    tags: ["rain"],
-  },
-  {
-    temperature: -10,
-    city: "Reykjavik",
-    country: "Iceland",
-    tags: ["snow"],
-  },
-  {
-    temperature: 45,
-    city: "Rio de Janeiro",
-    country: "Brazil",
-    tags: ["sun"],
-  },
-  {
-    temperature: 15,
-    city: "Amsterdam",
-    country: "Netherlands",
-    tags: ["cloud"],
-  },
-];
-
-export const app = () => (
-  <PageGrid>
-    <AppGrid>
-      <h1>Hows the weather in...</h1>
-      <Autocomplete />
-      <ListGrid>
-        {weatherItems.map((item) => (
-          <WeatherCard key={item.city + item.country} {...item} />
-        ))}
-      </ListGrid>
-    </AppGrid>
-  </PageGrid>
-);
+export const Default = () => {
+  const styles = pageGrid();
+  return (
+    <div className={styles.block}>
+      <AppGrid />
+    </div>
+  );
+};

@@ -1,14 +1,16 @@
 import { Meta } from "@storybook/react";
-import CircleButton from "./CircleButton";
-import { ReactComponent as CloseIcon } from "../assets/icons/close.svg";
+import { CloseIcon } from "../assets/icons";
+import circleButton from "../modules/circle-button";
 
 export default {
-  component: CircleButton,
-  title: "Modules/CircleButton",
+  title: "Modules/circleButton",
 } as Meta;
 
-export const withIcon = () => (
-  <CircleButton>
-    <CloseIcon />
-  </CircleButton>
-);
+export const Default = () => {
+  const styles = circleButton();
+  return (
+    <button className={styles.block}>
+      <CloseIcon />
+    </button>
+  );
+};

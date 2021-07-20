@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { element, modifier } from "../utils/bem";
+import { createElementClass, createModifierClass } from "../utils/bem";
 import "../styles/autocomplete.css";
 
 type Status = "idle" | "loading" | "succeeded" | "failed";
@@ -10,12 +10,12 @@ interface Autocomplete {
 
 function autocomplete({ status }: Autocomplete) {
   const block = "autocomplete";
-  const comboBox = element(block, "combo-box");
-  const label = element(block, "label");
-  const input = element(block, "input");
-  const button = element(block, "button");
-  const menu = element(block, "menu");
-  const menuItem = element(block, "menuItem");
+  const comboBox = createElementClass(block, "combo-box");
+  const label = createElementClass(block, "label");
+  const input = createElementClass(block, "input");
+  const button = createElementClass(block, "button");
+  const menu = createElementClass(block, "menu");
+  const menuItem = createElementClass(block, "menuItem");
 
   return {
     block: clsx(block),
@@ -23,11 +23,11 @@ function autocomplete({ status }: Autocomplete) {
     label,
     input,
     button: clsx(button, {
-      [modifier(button, "status-loading")]: status === "loading",
+      [createModifierClass(button, "status-loading")]: status === "loading",
     }),
     menu,
     menuItem: clsx(menuItem),
-    menuItemActive: clsx(menuItem, modifier(menuItem, "active")),
+    menuItemActive: clsx(menuItem, createModifierClass(menuItem, "active")),
   };
 }
 

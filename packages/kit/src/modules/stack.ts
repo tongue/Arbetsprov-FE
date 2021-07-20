@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { modifier } from "../utils/bem";
+import { createModifierClass } from "../utils/bem";
 import "../styles/stack.css";
 
 export type StackAnchor = "top-right" | "top-left";
@@ -17,15 +17,15 @@ function stack({ anchor = "top-right", offset = "xs" }: Stack) {
     block: clsx(
       block,
       {
-        [modifier(block, "offset-xs")]: offset === "xs",
-        [modifier(block, "offset-s")]: offset === "s",
-        [modifier(block, "offset-m")]: offset === "m",
-        [modifier(block, "offset-l")]: offset === "l",
-        [modifier(block, "offset-xl")]: offset === "xl",
+        [createModifierClass(block, "offset-xs")]: offset === "xs",
+        [createModifierClass(block, "offset-s")]: offset === "s",
+        [createModifierClass(block, "offset-m")]: offset === "m",
+        [createModifierClass(block, "offset-l")]: offset === "l",
+        [createModifierClass(block, "offset-xl")]: offset === "xl",
       },
       {
-        [modifier(block, "top-left")]: anchor === "top-left",
-        [modifier(block, "top-right")]: anchor === "top-right",
+        [createModifierClass(block, "top-left")]: anchor === "top-left",
+        [createModifierClass(block, "top-right")]: anchor === "top-right",
       }
     ),
   };

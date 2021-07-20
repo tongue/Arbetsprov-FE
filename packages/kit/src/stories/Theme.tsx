@@ -34,19 +34,27 @@ const fontSizes = [
   "display",
 ];
 
-const CssVariable = ({
+export const CssVariable = ({
   id,
   property,
 }: {
   id: string;
   property: string;
 }): JSX.Element => (
-  <code
-    style={{ display: "block", textAlign: "center", marginTop: "0.75em" }}
-  >{`var(--${property}-${id})`}</code>
+  <React.Fragment>
+    <h3 style={{ textAlign: "center" }}>{id}</h3>
+    <code
+      style={{
+        display: "block",
+        textAlign: "center",
+        marginTop: "0.75em",
+        fontSize: "small",
+      }}
+    >{`var(--${property}-${id})`}</code>
+  </React.Fragment>
 );
 
-const ColorBlock = ({ id }: { id: string }): JSX.Element => (
+export const ColorBlock = ({ id }: { id: string }): JSX.Element => (
   <div
     style={{
       display: "flex",
@@ -69,7 +77,7 @@ const ColorBlock = ({ id }: { id: string }): JSX.Element => (
   </div>
 );
 
-const SpacingBlock = ({ id }: { id: string }): JSX.Element => (
+export const SpacingBlock = ({ id }: { id: string }): JSX.Element => (
   <div>
     <div
       style={{
@@ -106,7 +114,7 @@ const SpacingBlock = ({ id }: { id: string }): JSX.Element => (
   </div>
 );
 
-const TextSize = ({ id }: { id: string }) => (
+export const TextSize = ({ id }: { id: string }) => (
   <div style={{ marginTop: "var(--spacing-l)" }}>
     <p
       style={{
@@ -122,7 +130,7 @@ const TextSize = ({ id }: { id: string }) => (
   </div>
 );
 
-const Grid = ({ children }: { children: ReactNode }): JSX.Element => (
+export const Grid = ({ children }: { children: ReactNode }): JSX.Element => (
   <div
     style={{
       display: "grid",

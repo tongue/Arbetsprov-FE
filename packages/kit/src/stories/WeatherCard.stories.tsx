@@ -1,33 +1,76 @@
-import React from "react";
-import { Meta, Story } from "@storybook/react";
-import WeatherCard from "./WeatherCard";
-import { WeatherCardProps } from "./WeatherCard";
+import { Meta } from "@storybook/react";
+import weatherCard from "../modules/weather-card";
+import { SunIcon, SnowIcon, CloudIcon } from "..";
 
 export default {
-  component: WeatherCard,
-  title: "Modules/WeatherCard",
+  title: "Modules/weatherCard",
 } as Meta;
 
-const Template: Story<WeatherCardProps> = (args) => <WeatherCard {...args} />;
+export const Hot = () => {
+  const styles = weatherCard({ temperature: "hot" });
+  return (
+    <article className={styles.block}>
+      <header className={styles.city}>
+        <h2 className={styles.heading}>
+          Rio de Janeiro <span className={styles.country}>Brazil</span>
+        </h2>
+      </header>
+      <div className={styles.temperature}>
+        26
+        <abbr
+          className={styles.temperatureUnit}
+          title="Degrees Celsius"
+        >{`°`}</abbr>
+      </div>
+      <figure className={styles.icon}>
+        <SunIcon />
+      </figure>
+    </article>
+  );
+};
 
-export const Hot = Template.bind({});
-Hot.args = {
-  city: "Rio de Janeiro",
-  country: "Brazil",
-  temperature: 26,
-  tags: ["sun"],
+export const Lukewarm = () => {
+  const styles = weatherCard({ temperature: "lukewarm" });
+  return (
+    <article className={styles.block}>
+      <header className={styles.city}>
+        <h2 className={styles.heading}>
+          Amsterdam <span className={styles.country}>Netherlands</span>
+        </h2>
+      </header>
+      <div className={styles.temperature}>
+        16
+        <abbr
+          className={styles.temperatureUnit}
+          title="Degrees Celsius"
+        >{`°`}</abbr>
+      </div>
+      <figure className={styles.icon}>
+        <CloudIcon />
+      </figure>
+    </article>
+  );
 };
-export const Lukewarm = Template.bind({});
-Lukewarm.args = {
-  city: "Amsterdam",
-  country: "Netherlands",
-  temperature: 16,
-  tags: ["cloud"],
-};
-export const Cold = Template.bind({});
-Cold.args = {
-  city: "Stockholm",
-  country: "Sweden",
-  temperature: -6,
-  tags: ["snow"],
+
+export const Cold = () => {
+  const styles = weatherCard({ temperature: "cold" });
+  return (
+    <article className={styles.block}>
+      <header className={styles.city}>
+        <h2 className={styles.heading}>
+          Stockholm <span className={styles.country}>Sweden</span>
+        </h2>
+      </header>
+      <div className={styles.temperature}>
+        -6
+        <abbr
+          className={styles.temperatureUnit}
+          title="Degrees Celsius"
+        >{`°`}</abbr>
+      </div>
+      <figure className={styles.icon}>
+        <SnowIcon />
+      </figure>
+    </article>
+  );
 };

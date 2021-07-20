@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { element, modifier } from "../utils/bem";
+import { createElementClass, createModifierClass } from "../utils/bem";
 import "../styles/weather-card.css";
 
 interface WeatherCard {
@@ -8,19 +8,19 @@ interface WeatherCard {
 
 function weatherCard({ temperature: _temperature }: WeatherCard) {
   const block = "weather-card";
-  const icon = element(block, "icon");
-  const temperature = element(block, "temperature");
-  const city = element(block, "city");
-  const country = element(block, "country");
-  const heading = element(block, "heading");
-  const temperatureValue = element(block, "temperature-value");
-  const temperatureUnit = element(block, "temperature-unit");
+  const icon = createElementClass(block, "icon");
+  const temperature = createElementClass(block, "temperature");
+  const city = createElementClass(block, "city");
+  const country = createElementClass(block, "country");
+  const heading = createElementClass(block, "heading");
+  const temperatureValue = createElementClass(block, "temperature-value");
+  const temperatureUnit = createElementClass(block, "temperature-unit");
 
   return {
     block: clsx(block, {
-      [modifier(block, "hot")]: _temperature === "hot",
-      [modifier(block, "lukewarm")]: _temperature === "lukewarm",
-      [modifier(block, "cold")]: _temperature === "cold",
+      [createModifierClass(block, "hot")]: _temperature === "hot",
+      [createModifierClass(block, "lukewarm")]: _temperature === "lukewarm",
+      [createModifierClass(block, "cold")]: _temperature === "cold",
     }),
     icon,
     temperature,

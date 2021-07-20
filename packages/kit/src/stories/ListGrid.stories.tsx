@@ -1,43 +1,24 @@
 import { Meta } from "@storybook/react";
-import ListGrid from "./ListGrid";
-import WeatherCard, { WeatherCardProps } from "./WeatherCard";
+import listGrid from "../modules/list-grid";
+import { Hot, Lukewarm, Cold } from "./WeatherCard.stories";
 
 export default {
-  component: ListGrid,
-  title: "Modules/ListGrid",
+  title: "Modules/listGrid",
 } as Meta;
 
-const weatherItems: WeatherCardProps[] = [
-  {
-    temperature: 20,
-    city: "Stockholm",
-    country: "Sweden",
-    tags: ["rain"],
-  },
-  {
-    temperature: -10,
-    city: "Reykjavik",
-    country: "Iceland",
-    tags: ["snow"],
-  },
-  {
-    temperature: 45,
-    city: "Rio de Janeiro",
-    country: "Brazil",
-    tags: ["sun"],
-  },
-  {
-    temperature: 15,
-    city: "Amsterdam",
-    country: "Netherlands",
-    tags: ["cloud"],
-  },
-];
-
-export const withIcon = () => (
-  <ListGrid>
-    {weatherItems.map((item) => (
-      <WeatherCard key={item.city + item.country} {...item} />
-    ))}
-  </ListGrid>
-);
+export const Default = () => {
+  const styles = listGrid();
+  return (
+    <ol className={styles.block}>
+      <li>
+        <Hot />
+      </li>
+      <li>
+        <Lukewarm />
+      </li>
+      <li>
+        <Cold />
+      </li>
+    </ol>
+  );
+};

@@ -43,7 +43,7 @@ describe("bem", () => {
   it("gets block and multiple choice modifier classes", () => {
     const module = createModule<{ test: "one" | "two" | "three" }>([
       "block",
-      ["test"],
+      ["test", ["one", "two", "three"]],
     ]);
     const expected = { block: "block block--test-two" };
     expect(module({ test: "two" })).toStrictEqual(expected);
