@@ -75,6 +75,7 @@
     "web-vitals": "^1.0.1"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-rename": "^1.0.1"
   }

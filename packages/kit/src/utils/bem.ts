@@ -1,11 +1,12 @@
 import clsx from "clsx";
+import { isUndefined } from "lodash";
 
-export const createModifierClass = (
+export const modifierTemplate = (
   blockOrElement: Element,
   modifier: Element
 ): string => `${blockOrElement}--${modifier}`;
 
-export const createElementClass = (
+export const elementTemplate = (
   block: BemElement,
   element: BemElement
 ): string => `${block}__${element}`;
@@ -20,9 +21,5 @@ export const createModule = <Type extends Record<string, string | boolean>>(
   block: BemElement,
   elements?: BemElement | BemElement[]
 ) => (props?: Type) => {
-  if (typeof elements === "undefined") {
-    return {
-      block,
-    };
-  }
+  if (isUndefined(elements)) return { block };
 };
